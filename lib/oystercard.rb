@@ -3,4 +3,7 @@ class Oystercard
   def initialize(balance)
     @balance = balance
   end
+  def add
+    @balance += 1
+  end
 end
