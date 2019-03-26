@@ -3,7 +3,7 @@ class Oystercard
   attr_accessor :balance, :state
   def initialize(balance, state)
     @balance = balance
-    @state = state
+    @state = false
   end
   def add(amount)
     if @balance + amount >= LIMIT
@@ -14,5 +14,11 @@ class Oystercard
   end
   def deduct(amount)
     @balance -= amount
+  end
+  def touch_in
+    @state = true
+  end
+  def touch_out
+    @state = false
   end
 end
