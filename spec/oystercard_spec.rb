@@ -13,4 +13,8 @@ describe Oystercard do
     card = Oystercard.new(100)
     expect{ card.add(1) }.to raise_error("Too much cash!")
   end
+  it "tests for charging the balance" do
+    card = Oystercard.new(50)
+    expect(card.deduct(1)).to eq(49)
+  end
 end
