@@ -1,8 +1,9 @@
 class Oystercard
   LIMIT = 100
-  attr_accessor :balance
-  def initialize(balance)
+  attr_accessor :balance, :state
+  def initialize(balance, state)
     @balance = balance
+    @state = state
   end
   def add(amount)
     if @balance + amount >= LIMIT
