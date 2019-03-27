@@ -1,10 +1,11 @@
 class Oystercard
   LIMIT = 100
   MINIMUM_BALANCE = 0
-  attr_accessor :balance, :state
-  def initialize(balance, state)
+  attr_accessor :balance, :state, :area
+  def initialize(balance, state, area)
     @balance = balance
     @state = state
+    @area = area
   end
   def add(amount)
     if @balance + amount >= LIMIT
@@ -26,5 +27,8 @@ class Oystercard
   def touch_out
     deduct(1)
     @state = false
+  end
+  def travel(place)
+    @area = place
   end
 end
