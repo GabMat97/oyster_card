@@ -25,7 +25,7 @@ describe Oystercard do
     card = Oystercard.new(50, true)
     expect(card.touch_out).to eq false
   end
-  it "tests for touch in when not cash" do
+  it "tests for touch in when not enough cash" do
     card = Oystercard.new(0, false)
     expect{ card.touch_in }.to raise_error("Not enough cash!")
   end

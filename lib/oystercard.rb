@@ -1,9 +1,10 @@
 class Oystercard
   LIMIT = 100
+  MINIMUM_BALANCE = 0
   attr_accessor :balance, :state
   def initialize(balance, state)
     @balance = balance
-    @state = false
+    @state = state
   end
   def add(amount)
     if @balance + amount >= LIMIT
@@ -16,7 +17,11 @@ class Oystercard
     @balance -= amount
   end
   def touch_in
-    @state = true
+    if @balance - 1 <= MINIMUM_BALANCE
+      fail("Not enough cash!")
+    else
+      @state = true
+    end
   end
   def touch_out
     @state = false
