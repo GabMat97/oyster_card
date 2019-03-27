@@ -24,6 +24,7 @@ class Oystercard
     end
   end
   def touch_out
+    deduct(1)
     @state = false
   end
 end
